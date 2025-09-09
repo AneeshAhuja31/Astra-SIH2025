@@ -1,0 +1,2571 @@
+{
+  "year": "2017",
+  "summary_type": "monthly_regional",
+  "total_measurements": 8436,
+  "regions_covered": [
+    "Arabian Sea",
+    "Bay of Bengal",
+    "Equatorial Region",
+    "Indian Ocean"
+  ],
+  "data_period": {
+    "start_date": "2017-01-01 00:00:00",
+    "end_date": "2017-04-30 00:00:00"
+  },
+  "monthly_regional_data": [
+    {
+      "period": "2017-01",
+      "region": "Arabian Sea",
+      "measurement_count": 232,
+      "date_range": {
+        "start": "2017-01-01",
+        "end": "2017-01-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 0.0,
+          "max": 2011.7,
+          "avg": 609.2077586206897,
+          "std": 630.6457288083529
+        },
+        "distribution": {
+          "surface_0_200m": 95,
+          "intermediate_200_1000m": 69,
+          "deep_1000m_plus": 68
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 3.011,
+        "max": 28.125,
+        "avg": 15.550711206896551,
+        "std": 8.269172463831179,
+        "surface_avg": 25.91143103448276,
+        "deep_avg": 7.603825242718446,
+        "thermocline_depth": 4.2,
+        "gradients": {
+          "surface_gradient": -5.3643471861471825,
+          "deep_gradient": 0.08556661924991676
+        }
+      },
+      "salinity": {
+        "min": 34.101,
+        "max": 36.913,
+        "avg": 35.82481465517241,
+        "std": 0.6932012227308543,
+        "surface_avg": 36.687275862068965,
+        "deep_avg": 35.19641747572815,
+        "halocline_depth": 4.2,
+        "gradients": {
+          "surface_gradient": -2.264346031746038,
+          "deep_gradient": -0.025259838786236267
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1023.31897,
+        "max": 1027.77002,
+        "avg": 1026.1671242543105,
+        "std": 1.4050638905811559,
+        "surface_avg": 1024.3334623965516,
+        "deep_avg": 1027.43676876699,
+        "pycnocline_depth": 4.2,
+        "gradients": {
+          "surface_gradient": -0.03507263737346875,
+          "deep_gradient": -0.027589848031981185
+        },
+        "stability_index": 0.7025319452905779
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          10.14,
+          24.951
+        ],
+        "lon_range": [
+          60.028,
+          68.849
+        ],
+        "center_point": [
+          18.56046982758621,
+          64.60307327586207
+        ],
+        "spatial_extent_km2": 1580838,
+        "primary_regions": [
+          "Arabian Sea"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 232,
+          "open_ocean": 0
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Subtropical Surface Water",
+          "temperature_range": [
+            18.953,
+            24.758
+          ],
+          "salinity_range": [
+            35.656,
+            36.877
+          ],
+          "depth_range": [
+            4.2,
+            145.6
+          ],
+          "prevalence": 0.108
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            3.011,
+            3.906
+          ],
+          "salinity_range": [
+            34.819,
+            34.923
+          ],
+          "depth_range": [
+            1813.0,
+            2011.7
+          ],
+          "prevalence": 0.086
+        }
+      ],
+      "oceanographic_summary": "2017-01 data from Arabian Sea shows average temperatures of 15.6\u00b0C and salinity of 35.8. Deep water measurements extend to 2012m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 29.674354181398805,
+        "sea_surface_height_anomaly": -0.09511650415169069,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 28.125,
+          "location": [
+            10.419,
+            63.902
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 36.913,
+          "location": [
+            17.51,
+            66.074
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 232,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-01",
+      "region": "Bay of Bengal",
+      "measurement_count": 122,
+      "date_range": {
+        "start": "2017-01-01",
+        "end": "2017-01-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.0,
+          "max": 2010.0,
+          "avg": 651.7975409836066,
+          "std": 668.6954747325478
+        },
+        "distribution": {
+          "surface_0_200m": 48,
+          "intermediate_200_1000m": 35,
+          "deep_1000m_plus": 39
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.632,
+        "max": 29.006,
+        "avg": 14.295696721311474,
+        "std": 9.621218305605655,
+        "surface_avg": 27.545814814814815,
+        "deep_avg": 5.2251568627450995,
+        "thermocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": 3.1975691618417463,
+          "deep_gradient": -0.028988525748748533
+        }
+      },
+      "salinity": {
+        "min": 28.253,
+        "max": 35.209,
+        "avg": 34.4109344262295,
+        "std": 1.0640304921507318,
+        "surface_avg": 32.965444444444444,
+        "deep_avg": 34.89062745098039,
+        "halocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": -4.546895500848879,
+          "deep_gradient": 0.0027915434819206454
+        },
+        "fresh_water_influence": "high"
+      },
+      "density": {
+        "min": 1017.585999,
+        "max": 1027.756958,
+        "avg": 1025.2576223934427,
+        "std": 2.7928151465253084,
+        "surface_avg": 1021.0104437777779,
+        "deep_avg": 1027.5366402745099,
+        "pycnocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": -4.386811761266668,
+          "deep_gradient": 0.004828038522206956
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          5.174,
+          18.791
+        ],
+        "lon_range": [
+          82.509,
+          95.624
+        ],
+        "center_point": [
+          12.881901639344264,
+          88.83254918032787
+        ],
+        "spatial_extent_km2": 2160902,
+        "primary_regions": [
+          "Bay of Bengal"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 0,
+          "open_ocean": 122
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.632,
+            3.898
+          ],
+          "salinity_range": [
+            34.775,
+            34.879
+          ],
+          "depth_range": [
+            1588.0,
+            2010.0
+          ],
+          "prevalence": 0.172
+        }
+      ],
+      "oceanographic_summary": "2017-01 data from Bay of Bengal shows average temperatures of 14.3\u00b0C and salinity of 34.4. Deep water measurements extend to 2010m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 55.564024645578755,
+        "sea_surface_height_anomaly": 0.012292742558275765,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.006,
+          "location": [
+            18.216,
+            91.423
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 35.209,
+          "location": [
+            14.187,
+            88.085
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 0.992,
+        "sensor_issues": [],
+        "interpolated_points": 1,
+        "quality_flags": {
+          "good": 121,
+          "questionable": 1,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-01",
+      "region": "Equatorial Region",
+      "measurement_count": 417,
+      "date_range": {
+        "start": "2017-01-01",
+        "end": "2017-01-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.0,
+          "max": 2013.0,
+          "avg": 794.0405275779377,
+          "std": 726.8177821336533
+        },
+        "distribution": {
+          "surface_0_200m": 148,
+          "intermediate_200_1000m": 104,
+          "deep_1000m_plus": 165
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.422,
+        "max": 29.285,
+        "avg": 12.503019184652278,
+        "std": 9.486317762542997,
+        "surface_avg": 27.933376470588236,
+        "deep_avg": 5.132445454545454,
+        "thermocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        }
+      },
+      "salinity": {
+        "min": 33.386,
+        "max": 36.543,
+        "avg": 34.98270503597122,
+        "std": 0.3494779372899849,
+        "surface_avg": 35.08007058823529,
+        "deep_avg": 34.88848636363636,
+        "halocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1020.937012,
+        "max": 1028.359009,
+        "avg": 1026.0573064484413,
+        "std": 2.0941235745817086,
+        "surface_avg": 1022.4711404235294,
+        "deep_avg": 1027.5419195045456,
+        "pycnocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -9.953,
+          9.963
+        ],
+        "lon_range": [
+          40.129,
+          110.287
+        ],
+        "center_point": [
+          -1.078525179856115,
+          73.00080575539569
+        ],
+        "spatial_extent_km2": 16906927,
+        "primary_regions": [
+          "Equatorial Region"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 62,
+          "open_ocean": 355
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.422,
+            4.0
+          ],
+          "salinity_range": [
+            34.618,
+            34.896
+          ],
+          "depth_range": [
+            1504.0,
+            2013.0
+          ],
+          "prevalence": 0.211
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.144,
+            29.285
+          ],
+          "salinity_range": [
+            34.55,
+            36.481
+          ],
+          "depth_range": [
+            1.0,
+            105.0
+          ],
+          "prevalence": 0.189
+        },
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.482,
+            5.525
+          ],
+          "salinity_range": [
+            34.618,
+            34.8
+          ],
+          "depth_range": [
+            1006.0,
+            1998.8
+          ],
+          "prevalence": 0.165
+        }
+      ],
+      "oceanographic_summary": "2017-01 data from Equatorial Region shows average temperatures of 12.5\u00b0C and salinity of 35.0. Deep water measurements extend to 2013m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 55.31120798538859,
+        "sea_surface_height_anomaly": 0.1567708544878376,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.285,
+          "location": [
+            -8.318,
+            79.382
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 36.543,
+          "location": [
+            6.524,
+            57.404
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 417,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-01",
+      "region": "Indian Ocean",
+      "measurement_count": 2131,
+      "date_range": {
+        "start": "2017-01-01",
+        "end": "2017-01-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 0.0,
+          "max": 4979.4,
+          "avg": 737.867573908963,
+          "std": 695.0181709075792
+        },
+        "distribution": {
+          "surface_0_200m": 691,
+          "intermediate_200_1000m": 767,
+          "deep_1000m_plus": 673
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": -1.531,
+        "max": 29.453,
+        "avg": 8.564116846550915,
+        "std": 7.367659461766433,
+        "surface_avg": 16.32852976190476,
+        "deep_avg": 4.293977570093459,
+        "thermocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": 0.0002440155702395929
+        }
+      },
+      "salinity": {
+        "min": 26.932,
+        "max": 40.61,
+        "avg": 34.773463162834354,
+        "std": 1.0662734130994553,
+        "surface_avg": 34.8673125,
+        "deep_avg": 34.64225514018691,
+        "halocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -8.938199869755078e-06
+        },
+        "fresh_water_influence": "high"
+      },
+      "density": {
+        "min": 1017.637024,
+        "max": 1029.347046,
+        "avg": 1026.7292960244017,
+        "std": 1.317467954098585,
+        "surface_avg": 1025.2009602589287,
+        "deep_avg": 1027.4169842542055,
+        "pycnocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -2.668162064542619e-05
+        },
+        "stability_index": 0.6587339770492925
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -68.911,
+          25.292
+        ],
+        "lon_range": [
+          20.004,
+          139.986
+        ],
+        "center_point": [
+          -33.82339136555608,
+          81.29146644767714
+        ],
+        "spatial_extent_km2": 136762238,
+        "primary_regions": [
+          "Southern Indian Ocean"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 327,
+          "open_ocean": 1804
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.001,
+            5.996
+          ],
+          "salinity_range": [
+            34.601,
+            34.782
+          ],
+          "depth_range": [
+            808.0,
+            2000.0
+          ],
+          "prevalence": 0.182
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            1.034,
+            3.863
+          ],
+          "salinity_range": [
+            34.601,
+            34.874
+          ],
+          "depth_range": [
+            1500.0,
+            3340.0
+          ],
+          "prevalence": 0.161
+        },
+        {
+          "name": "Antarctic Intermediate Water",
+          "temperature_range": [
+            3.028,
+            6.846
+          ],
+          "salinity_range": [
+            34.232,
+            34.596
+          ],
+          "depth_range": [
+            514.0,
+            1500.0
+          ],
+          "prevalence": 0.089
+        }
+      ],
+      "oceanographic_summary": "2017-01 data from Indian Ocean shows average temperatures of 8.6\u00b0C and salinity of 34.8. Deep water measurements extend to 4979m depth. Cool waters suggest high latitude or deep water influence.",
+      "environmental_conditions": {
+        "mixed_layer_depth": 69.75542482968845,
+        "sea_surface_height_anomaly": 0.20976661841089814,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.453,
+          "location": [
+            -10.478,
+            102.024
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 40.61,
+          "location": [
+            21.066,
+            38.253
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 0.993,
+        "sensor_issues": [],
+        "interpolated_points": 14,
+        "quality_flags": {
+          "good": 2117,
+          "questionable": 14,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal",
+        "IOD_index": -0.26
+      }
+    },
+    {
+      "period": "2017-02",
+      "region": "Arabian Sea",
+      "measurement_count": 195,
+      "date_range": {
+        "start": "2017-02-01",
+        "end": "2017-02-28"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.0,
+          "max": 2000.3,
+          "avg": 512.9738461538461,
+          "std": 575.7720849407224
+        },
+        "distribution": {
+          "surface_0_200m": 84,
+          "intermediate_200_1000m": 76,
+          "deep_1000m_plus": 35
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 3.016,
+        "max": 27.874,
+        "avg": 16.21310769230769,
+        "std": 7.452625846915689,
+        "surface_avg": 25.190199999999997,
+        "deep_avg": 7.845470588235295,
+        "thermocline_depth": 4.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        }
+      },
+      "salinity": {
+        "min": 34.209,
+        "max": 36.861,
+        "avg": 35.860046153846156,
+        "std": 0.6283503216556996,
+        "surface_avg": 36.53895,
+        "deep_avg": 35.20624999999999,
+        "halocline_depth": 4.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1022.755005,
+        "max": 1027.771973,
+        "avg": 1026.1031293487179,
+        "std": 1.27810272442029,
+        "surface_avg": 1024.442776475,
+        "deep_avg": 1027.4042304117647,
+        "pycnocline_depth": 4.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        },
+        "stability_index": 0.639051362210145
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          10.076,
+          24.831
+        ],
+        "lon_range": [
+          60.031,
+          68.917
+        ],
+        "center_point": [
+          18.507466666666666,
+          64.73350256410257
+        ],
+        "spatial_extent_km2": 1586466,
+        "primary_regions": [
+          "Arabian Sea"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 195,
+          "open_ocean": 0
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Subtropical Surface Water",
+          "temperature_range": [
+            19.614,
+            24.942
+          ],
+          "salinity_range": [
+            35.64,
+            36.791
+          ],
+          "depth_range": [
+            1.0,
+            136.0
+          ],
+          "prevalence": 0.256
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            3.016,
+            3.666
+          ],
+          "salinity_range": [
+            34.812,
+            34.897
+          ],
+          "depth_range": [
+            1799.6,
+            2000.3
+          ],
+          "prevalence": 0.067
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.381,
+            27.874
+          ],
+          "salinity_range": [
+            35.422,
+            36.442
+          ],
+          "depth_range": [
+            4.1,
+            80.6
+          ],
+          "prevalence": 0.056
+        }
+      ],
+      "oceanographic_summary": "2017-02 data from Arabian Sea shows average temperatures of 16.2\u00b0C and salinity of 35.9. Deep water measurements extend to 2000m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 56.75120118370853,
+        "sea_surface_height_anomaly": -0.11101885715429474,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 27.874,
+          "location": [
+            14.767,
+            67.981
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 36.861,
+          "location": [
+            13.644,
+            67.149
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 195,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-02",
+      "region": "Bay of Bengal",
+      "measurement_count": 106,
+      "date_range": {
+        "start": "2017-02-01",
+        "end": "2017-02-28"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.0,
+          "max": 2005.0,
+          "avg": 667.751886792453,
+          "std": 649.5734329588379
+        },
+        "distribution": {
+          "surface_0_200m": 38,
+          "intermediate_200_1000m": 39,
+          "deep_1000m_plus": 29
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.677,
+        "max": 29.116,
+        "avg": 13.635801886792454,
+        "std": 9.21864332691903,
+        "surface_avg": 27.184949999999997,
+        "deep_avg": 5.8277254901960776,
+        "thermocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": 1.6556537232579793,
+          "deep_gradient": -0.000575862720656033
+        }
+      },
+      "salinity": {
+        "min": 31.825,
+        "max": 35.123,
+        "avg": 34.47999056603774,
+        "std": 0.8867012004941528,
+        "surface_avg": 32.869150000000005,
+        "deep_avg": 34.910450980392156,
+        "halocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": -0.4650027731947547,
+          "deep_gradient": -0.0006149248615457961
+        },
+        "fresh_water_influence": "high"
+      },
+      "density": {
+        "min": 1020.275024,
+        "max": 1027.776978,
+        "avg": 1025.4806627830187,
+        "std": 2.6285593160993432,
+        "surface_avg": 1021.0533507999999,
+        "deep_avg": 1027.473805156863,
+        "pycnocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": -0.869082429200694,
+          "deep_gradient": -0.00046979806106594327
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          5.174,
+          19.046
+        ],
+        "lon_range": [
+          81.28,
+          95.685
+        ],
+        "center_point": [
+          13.022603773584905,
+          88.83783962264151
+        ],
+        "spatial_extent_km2": 2417896,
+        "primary_regions": [
+          "Bay of Bengal"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 0,
+          "open_ocean": 106
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.677,
+            3.851
+          ],
+          "salinity_range": [
+            34.78,
+            34.866
+          ],
+          "depth_range": [
+            1588.0,
+            2005.0
+          ],
+          "prevalence": 0.151
+        },
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.792,
+            3.335
+          ],
+          "salinity_range": [
+            34.78,
+            34.799
+          ],
+          "depth_range": [
+            1799.6,
+            1962.0
+          ],
+          "prevalence": 0.066
+        }
+      ],
+      "oceanographic_summary": "2017-02 data from Bay of Bengal shows average temperatures of 13.6\u00b0C and salinity of 34.5. Deep water measurements extend to 2005m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 105.99741775192497,
+        "sea_surface_height_anomaly": -0.25607583917618565,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.116,
+          "location": [
+            6.532,
+            88.253
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 35.123,
+          "location": [
+            5.174,
+            89.717
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 106,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-02",
+      "region": "Equatorial Region",
+      "measurement_count": 354,
+      "date_range": {
+        "start": "2017-02-01",
+        "end": "2017-02-28"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.0,
+          "max": 2027.0,
+          "avg": 750.3799435028249,
+          "std": 704.7517950712062
+        },
+        "distribution": {
+          "surface_0_200m": 118,
+          "intermediate_200_1000m": 107,
+          "deep_1000m_plus": 129
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.536,
+        "max": 29.779,
+        "avg": 12.677338983050848,
+        "std": 9.337553081535193,
+        "surface_avg": 28.241485714285716,
+        "deep_avg": 5.113117647058823,
+        "thermocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        }
+      },
+      "salinity": {
+        "min": 33.228,
+        "max": 37.342,
+        "avg": 34.96172316384181,
+        "std": 0.3725929162212969,
+        "surface_avg": 34.96612857142857,
+        "deep_avg": 34.875235294117644,
+        "halocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1020.788025,
+        "max": 1027.896973,
+        "avg": 1026.0221591864408,
+        "std": 2.111924546819911,
+        "surface_avg": 1022.2873961714283,
+        "deep_avg": 1027.534928617647,
+        "pycnocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": NaN
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -9.948,
+          9.952
+        ],
+        "lon_range": [
+          40.326,
+          110.017
+        ],
+        "center_point": [
+          -0.8322344632768361,
+          73.02512146892656
+        ],
+        "spatial_extent_km2": 16780895,
+        "primary_regions": [
+          "Equatorial Region"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 68,
+          "open_ocean": 286
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.536,
+            3.96
+          ],
+          "salinity_range": [
+            34.662,
+            34.929
+          ],
+          "depth_range": [
+            1556.0,
+            2027.0
+          ],
+          "prevalence": 0.198
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.36,
+            29.779
+          ],
+          "salinity_range": [
+            34.547,
+            36.272
+          ],
+          "depth_range": [
+            1.0,
+            107.4
+          ],
+          "prevalence": 0.178
+        },
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.536,
+            5.977
+          ],
+          "salinity_range": [
+            34.655,
+            34.8
+          ],
+          "depth_range": [
+            908.0,
+            1994.6
+          ],
+          "prevalence": 0.158
+        }
+      ],
+      "oceanographic_summary": "2017-02 data from Equatorial Region shows average temperatures of 12.7\u00b0C and salinity of 35.0. Deep water measurements extend to 2027m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 52.30959817234215,
+        "sea_surface_height_anomaly": 0.3387524816842553,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.779,
+          "location": [
+            0.851,
+            88.146
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 37.342,
+          "location": [
+            8.299,
+            58.058
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 354,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-02",
+      "region": "Indian Ocean",
+      "measurement_count": 1903,
+      "date_range": {
+        "start": "2017-02-01",
+        "end": "2017-02-28"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 0.4,
+          "max": 5632.6,
+          "avg": 752.8879138202839,
+          "std": 734.2994018285538
+        },
+        "distribution": {
+          "surface_0_200m": 632,
+          "intermediate_200_1000m": 657,
+          "deep_1000m_plus": 614
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": -1.552,
+        "max": 30.555,
+        "avg": 8.662807146610614,
+        "std": 7.524018082325863,
+        "surface_avg": 16.758478827361564,
+        "deep_avg": 4.407987717502558,
+        "thermocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.00031930134402209187
+        }
+      },
+      "salinity": {
+        "min": 27.193,
+        "max": 40.615,
+        "avg": 34.75649448239622,
+        "std": 1.106996874319877,
+        "surface_avg": 34.85119543973941,
+        "deep_avg": 34.617519959058335,
+        "halocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -7.981137639171974e-05
+        },
+        "fresh_water_influence": "high"
+      },
+      "density": {
+        "min": 1020.85498,
+        "max": 1028.946045,
+        "avg": 1026.6888197214923,
+        "std": 1.3269223094752263,
+        "surface_avg": 1025.0984628175895,
+        "deep_avg": 1027.3755204677584,
+        "pycnocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -4.461638696570053e-05
+        },
+        "stability_index": 0.6634611547376131
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -69.016,
+          25.064
+        ],
+        "lon_range": [
+          20.265,
+          139.981
+        ],
+        "center_point": [
+          -33.75980451918024,
+          81.66322175512347
+        ],
+        "spatial_extent_km2": 136280863,
+        "primary_regions": [
+          "Southern Indian Ocean"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 302,
+          "open_ocean": 1601
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.005,
+            5.999
+          ],
+          "salinity_range": [
+            34.603,
+            34.794
+          ],
+          "depth_range": [
+            830.0,
+            2000.0
+          ],
+          "prevalence": 0.177
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            1.035,
+            3.915
+          ],
+          "salinity_range": [
+            34.605,
+            34.915
+          ],
+          "depth_range": [
+            1500.0,
+            3616.0
+          ],
+          "prevalence": 0.154
+        },
+        {
+          "name": "Antarctic Intermediate Water",
+          "temperature_range": [
+            3.002,
+            6.942
+          ],
+          "salinity_range": [
+            34.214,
+            34.596
+          ],
+          "depth_range": [
+            546.0,
+            1499.7
+          ],
+          "prevalence": 0.1
+        }
+      ],
+      "oceanographic_summary": "2017-02 data from Indian Ocean shows average temperatures of 8.7\u00b0C and salinity of 34.8. Deep water measurements extend to 5633m depth. Cool waters suggest high latitude or deep water influence.",
+      "environmental_conditions": {
+        "mixed_layer_depth": 77.62620675191795,
+        "sea_surface_height_anomaly": -0.11301469074547568,
+        "season": "winter"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 30.555,
+          "location": [
+            -16.143,
+            120.431
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 40.615,
+          "location": [
+            24.109,
+            36.09
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 0.993,
+        "sensor_issues": [],
+        "interpolated_points": 14,
+        "quality_flags": {
+          "good": 1889,
+          "questionable": 14,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal",
+        "IOD_index": 0.14
+      }
+    },
+    {
+      "period": "2017-03",
+      "region": "Arabian Sea",
+      "measurement_count": 223,
+      "date_range": {
+        "start": "2017-03-01",
+        "end": "2017-03-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.0,
+          "max": 2000.8,
+          "avg": 556.437668161435,
+          "std": 581.078013026966
+        },
+        "distribution": {
+          "surface_0_200m": 94,
+          "intermediate_200_1000m": 76,
+          "deep_1000m_plus": 53
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 3.08,
+        "max": 29.229,
+        "avg": 16.214210762331838,
+        "std": 8.160204898586228,
+        "surface_avg": 26.30757407407407,
+        "deep_avg": 8.096276595744682,
+        "thermocline_depth": 2.9,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.023293208597323277
+        }
+      },
+      "salinity": {
+        "min": 34.642,
+        "max": 36.842,
+        "avg": 35.8267802690583,
+        "std": 0.5989251417119689,
+        "surface_avg": 36.36205555555555,
+        "deep_avg": 35.2807659574468,
+        "halocline_depth": 2.9,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.010948853271183851
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1022.106995,
+        "max": 1027.765015,
+        "avg": 1026.0301010134528,
+        "std": 1.5426771249688596,
+        "surface_avg": 1023.959368740741,
+        "deep_avg": 1027.4331976595745,
+        "pycnocline_depth": 2.9,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.0062934294625156175
+        },
+        "stability_index": 0.7713385624844298
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          10.029,
+          24.821
+        ],
+        "lon_range": [
+          60.013,
+          68.799
+        ],
+        "center_point": [
+          18.36116591928251,
+          64.2748475336323
+        ],
+        "spatial_extent_km2": 1572546,
+        "primary_regions": [
+          "Arabian Sea"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 223,
+          "open_ocean": 0
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Subtropical Surface Water",
+          "temperature_range": [
+            20.595,
+            24.979
+          ],
+          "salinity_range": [
+            35.61,
+            36.774
+          ],
+          "depth_range": [
+            4.1,
+            145.8
+          ],
+          "prevalence": 0.143
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.206,
+            29.229
+          ],
+          "salinity_range": [
+            35.156,
+            36.495
+          ],
+          "depth_range": [
+            1.0,
+            105.4
+          ],
+          "prevalence": 0.121
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            3.08,
+            3.937
+          ],
+          "salinity_range": [
+            34.835,
+            34.912
+          ],
+          "depth_range": [
+            1699.7,
+            2000.8
+          ],
+          "prevalence": 0.063
+        }
+      ],
+      "oceanographic_summary": "2017-03 data from Arabian Sea shows average temperatures of 16.2\u00b0C and salinity of 35.8. Deep water measurements extend to 2001m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 67.06884270774081,
+        "sea_surface_height_anomaly": 0.18989371154500478,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.229,
+          "location": [
+            10.029,
+            66.79
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 36.842,
+          "location": [
+            24.646,
+            63.907
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 223,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-03",
+      "region": "Bay of Bengal",
+      "measurement_count": 122,
+      "date_range": {
+        "start": "2017-03-01",
+        "end": "2017-03-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 2.8,
+          "max": 1997.1,
+          "avg": 812.6762295081967,
+          "std": 684.0778566019396
+        },
+        "distribution": {
+          "surface_0_200m": 37,
+          "intermediate_200_1000m": 39,
+          "deep_1000m_plus": 46
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.684,
+        "max": 29.643,
+        "avg": 12.188360655737705,
+        "std": 9.2897015316176,
+        "surface_avg": 28.480235294117648,
+        "deep_avg": 5.541084507042254,
+        "thermocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": 0.014515062340174235
+        }
+      },
+      "salinity": {
+        "min": 32.089,
+        "max": 35.092,
+        "avg": 34.59985245901639,
+        "std": 0.6819644045887843,
+        "surface_avg": 33.19582352941177,
+        "deep_avg": 34.90316901408451,
+        "halocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": 0.0004953777353675599
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1020.424988,
+        "max": 1027.76001,
+        "avg": 1025.8492771557378,
+        "std": 2.5362045677116525,
+        "surface_avg": 1020.8816491764708,
+        "deep_avg": 1027.5062960563378,
+        "pycnocline_depth": 6.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.0013531329914113221
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          5.683,
+          18.738
+        ],
+        "lon_range": [
+          80.916,
+          93.362
+        ],
+        "center_point": [
+          13.115770491803278,
+          88.26369672131148
+        ],
+        "spatial_extent_km2": 1966038,
+        "primary_regions": [
+          "Bay of Bengal"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 0,
+          "open_ocean": 122
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.684,
+            3.978
+          ],
+          "salinity_range": [
+            34.774,
+            34.858
+          ],
+          "depth_range": [
+            1588.0,
+            1997.1
+          ],
+          "prevalence": 0.205
+        },
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.684,
+            3.203
+          ],
+          "salinity_range": [
+            34.774,
+            34.797
+          ],
+          "depth_range": [
+            1820.0,
+            1997.1
+          ],
+          "prevalence": 0.082
+        }
+      ],
+      "oceanographic_summary": "2017-03 data from Bay of Bengal shows average temperatures of 12.2\u00b0C and salinity of 34.6. Deep water measurements extend to 1997m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 83.06548395163455,
+        "sea_surface_height_anomaly": -0.0839841720089271,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 29.643,
+          "location": [
+            9.539,
+            81.606
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 35.092,
+          "location": [
+            5.755,
+            89.248
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 122,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-03",
+      "region": "Equatorial Region",
+      "measurement_count": 403,
+      "date_range": {
+        "start": "2017-03-01",
+        "end": "2017-03-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 0.0,
+          "max": 2013.0,
+          "avg": 690.3248138957817,
+          "std": 662.3946426163322
+        },
+        "distribution": {
+          "surface_0_200m": 138,
+          "intermediate_200_1000m": 149,
+          "deep_1000m_plus": 116
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.419,
+        "max": 30.061,
+        "avg": 13.23357071960298,
+        "std": 9.297021045754935,
+        "surface_avg": 28.844824324324314,
+        "deep_avg": 5.660781249999999,
+        "thermocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": 0.04707129384025958
+        }
+      },
+      "salinity": {
+        "min": 33.895,
+        "max": 37.483,
+        "avg": 35.00138957816377,
+        "std": 0.3607322563711727,
+        "surface_avg": 34.95051351351351,
+        "deep_avg": 34.90908854166667,
+        "halocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.0014712938402625146
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1021.174011,
+        "max": 1028.564941,
+        "avg": 1025.9475349057072,
+        "std": 2.1045275039625864,
+        "surface_avg": 1022.0784846216214,
+        "deep_avg": 1027.4894390208335,
+        "pycnocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.004899730857696719
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -9.917,
+          9.958
+        ],
+        "lon_range": [
+          40.288,
+          111.865
+        ],
+        "center_point": [
+          -0.9198535980148884,
+          73.14965260545905
+        ],
+        "spatial_extent_km2": 17213373,
+        "primary_regions": [
+          "Equatorial Region"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 101,
+          "open_ocean": 302
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.099,
+            29.768
+          ],
+          "salinity_range": [
+            34.521,
+            36.428
+          ],
+          "depth_range": [
+            1.0,
+            110.0
+          ],
+          "prevalence": 0.181
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.419,
+            3.985
+          ],
+          "salinity_range": [
+            34.734,
+            34.964
+          ],
+          "depth_range": [
+            1504.0,
+            2013.0
+          ],
+          "prevalence": 0.151
+        },
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.419,
+            5.999
+          ],
+          "salinity_range": [
+            34.652,
+            34.799
+          ],
+          "depth_range": [
+            834.0,
+            2000.0
+          ],
+          "prevalence": 0.144
+        }
+      ],
+      "oceanographic_summary": "2017-03 data from Equatorial Region shows average temperatures of 13.2\u00b0C and salinity of 35.0. Deep water measurements extend to 2013m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 79.70309852752919,
+        "sea_surface_height_anomaly": -0.1464339030549094,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 30.061,
+          "location": [
+            0.65,
+            83.461
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 37.483,
+          "location": [
+            8.007,
+            57.836
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 403,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-03",
+      "region": "Indian Ocean",
+      "measurement_count": 1912,
+      "date_range": {
+        "start": "2017-03-01",
+        "end": "2017-03-31"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 0.3,
+          "max": 4946.0,
+          "avg": 778.8884414225942,
+          "std": 714.3333133277885
+        },
+        "distribution": {
+          "surface_0_200m": 599,
+          "intermediate_200_1000m": 663,
+          "deep_1000m_plus": 650
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": -0.729,
+        "max": 30.413,
+        "avg": 8.684668933054393,
+        "std": 7.510858449510222,
+        "surface_avg": 17.68121070234114,
+        "deep_avg": 4.34885546875,
+        "thermocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.0003943494466021287
+        }
+      },
+      "salinity": {
+        "min": 27.31,
+        "max": 40.618,
+        "avg": 34.78824633891214,
+        "std": 1.086690970225402,
+        "surface_avg": 34.89102675585285,
+        "deep_avg": 34.6389775390625,
+        "halocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -3.688668027153572e-05
+        },
+        "fresh_water_influence": "high"
+      },
+      "density": {
+        "min": 1017.236023,
+        "max": 1029.009033,
+        "avg": 1026.7120785507323,
+        "std": 1.359327770246039,
+        "surface_avg": 1024.9080755250836,
+        "deep_avg": 1027.405050810547,
+        "pycnocline_depth": 1.0,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -5.28189267012813e-07
+        },
+        "stability_index": 0.6796638851230195
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -69.073,
+          24.58
+        ],
+        "lon_range": [
+          20.024,
+          139.988
+        ],
+        "center_point": [
+          -33.21324267782427,
+          81.71368043933055
+        ],
+        "spatial_extent_km2": 135943360,
+        "primary_regions": [
+          "Southern Indian Ocean"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 305,
+          "open_ocean": 1607
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.011,
+            5.982
+          ],
+          "salinity_range": [
+            34.6,
+            34.782
+          ],
+          "depth_range": [
+            832.0,
+            2000.0
+          ],
+          "prevalence": 0.192
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            1.039,
+            3.88
+          ],
+          "salinity_range": [
+            34.6,
+            34.863
+          ],
+          "depth_range": [
+            1500.3,
+            2729.3
+          ],
+          "prevalence": 0.171
+        },
+        {
+          "name": "Antarctic Intermediate Water",
+          "temperature_range": [
+            3.009,
+            6.958
+          ],
+          "salinity_range": [
+            34.212,
+            34.599
+          ],
+          "depth_range": [
+            513.0,
+            1499.3
+          ],
+          "prevalence": 0.109
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.058,
+            29.628
+          ],
+          "salinity_range": [
+            34.522,
+            36.464
+          ],
+          "depth_range": [
+            1.0,
+            96.1
+          ],
+          "prevalence": 0.052
+        }
+      ],
+      "oceanographic_summary": "2017-03 data from Indian Ocean shows average temperatures of 8.7\u00b0C and salinity of 34.8. Deep water measurements extend to 4946m depth. Cool waters suggest high latitude or deep water influence.",
+      "environmental_conditions": {
+        "mixed_layer_depth": 61.800698799401914,
+        "sea_surface_height_anomaly": -0.14183399547890704,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 30.413,
+          "location": [
+            -19.632,
+            63.251
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 40.618,
+          "location": [
+            23.806,
+            36.07
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 0.991,
+        "sensor_issues": [],
+        "interpolated_points": 18,
+        "quality_flags": {
+          "good": 1894,
+          "questionable": 18,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal",
+        "IOD_index": -0.65
+      }
+    },
+    {
+      "period": "2017-04",
+      "region": "Arabian Sea",
+      "measurement_count": 8,
+      "date_range": {
+        "start": "2017-04-02",
+        "end": "2017-04-27"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 128.0,
+          "max": 648.4,
+          "avg": 470.55,
+          "std": 190.15036906917342
+        },
+        "distribution": {
+          "surface_0_200m": 1,
+          "intermediate_200_1000m": 7,
+          "deep_1000m_plus": 0
+        },
+        "coverage": "partial"
+      },
+      "temperature": {
+        "min": 13.481,
+        "max": 22.278,
+        "avg": 15.902375,
+        "std": 3.1802519189298732,
+        "deep_avg": 14.007600000000002
+      },
+      "salinity": {
+        "min": 34.033,
+        "max": 35.24,
+        "avg": 34.533,
+        "std": 0.43782873363908,
+        "deep_avg": 34.269600000000004,
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1024.10498,
+        "max": 1025.918945,
+        "avg": 1025.3706053749997,
+        "std": 0.5704835279534456,
+        "deep_avg": 1025.6207762,
+        "stability_index": 0.2852417639767228
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          23.098,
+          23.69
+        ],
+        "lon_range": [
+          62.748,
+          63.641
+        ],
+        "center_point": [
+          23.34825,
+          63.1755
+        ],
+        "spatial_extent_km2": 6396,
+        "primary_regions": [
+          "Arabian Sea"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 8,
+          "open_ocean": 0
+        }
+      },
+      "water_masses": [],
+      "oceanographic_summary": "2017-04 data from Arabian Sea shows average temperatures of 15.9\u00b0C and salinity of 34.5. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 81.05642928801997,
+        "sea_surface_height_anomaly": 0.042054114164121255,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 22.278,
+          "location": [
+            23.228,
+            63.278
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 35.24,
+          "location": [
+            23.138,
+            63.209
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 8,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-04",
+      "region": "Equatorial Region",
+      "measurement_count": 50,
+      "date_range": {
+        "start": "2017-04-01",
+        "end": "2017-04-30"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 4.2,
+          "max": 2004.4,
+          "avg": 736.49,
+          "std": 759.1081015889365
+        },
+        "distribution": {
+          "surface_0_200m": 20,
+          "intermediate_200_1000m": 13,
+          "deep_1000m_plus": 17
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 2.457,
+        "max": 30.597,
+        "avg": 13.321260000000002,
+        "std": 10.01789612482357,
+        "surface_avg": 28.505636363636366,
+        "deep_avg": 4.445954545454544,
+        "thermocline_depth": 1274.2,
+        "gradients": {
+          "surface_gradient": -2.389500000000031,
+          "deep_gradient": -0.1392454895239434
+        }
+      },
+      "salinity": {
+        "min": 34.169,
+        "max": 35.543,
+        "avg": 34.95918,
+        "std": 0.2449192861632054,
+        "surface_avg": 35.143,
+        "deep_avg": 34.82218181818181,
+        "halocline_depth": 1274.2,
+        "gradients": {
+          "surface_gradient": -0.025833333333334707,
+          "deep_gradient": -0.0017491363224055741
+        },
+        "fresh_water_influence": "minimal"
+      },
+      "density": {
+        "min": 1021.760986,
+        "max": 1027.842041,
+        "avg": 1025.83822142,
+        "std": 2.202240467549103,
+        "surface_avg": 1022.3279917272728,
+        "deep_avg": 1027.5718216363637,
+        "pycnocline_depth": 1274.2,
+        "gradients": {
+          "surface_gradient": 0.7890514999997336,
+          "deep_gradient": 0.010081376227202052
+        },
+        "stability_index": 1.0
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -9.54,
+          0.801
+        ],
+        "lon_range": [
+          40.888,
+          110.966
+        ],
+        "center_point": [
+          -5.355680000000001,
+          66.04478
+        ],
+        "spatial_extent_km2": 8768586,
+        "primary_regions": [
+          "Equatorial Region"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 11,
+          "open_ocean": 39
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            2.457,
+            3.439
+          ],
+          "salinity_range": [
+            34.766,
+            34.952
+          ],
+          "depth_range": [
+            1662.0,
+            2004.4
+          ],
+          "prevalence": 0.24
+        },
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.629,
+            5.682
+          ],
+          "salinity_range": [
+            34.718,
+            34.8
+          ],
+          "depth_range": [
+            944.3,
+            1991.2
+          ],
+          "prevalence": 0.22
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            25.47,
+            29.98
+          ],
+          "salinity_range": [
+            34.592,
+            35.543
+          ],
+          "depth_range": [
+            4.3,
+            91.7
+          ],
+          "prevalence": 0.2
+        }
+      ],
+      "oceanographic_summary": "2017-04 data from Equatorial Region shows average temperatures of 13.3\u00b0C and salinity of 35.0. Deep water measurements extend to 2004m depth. ",
+      "environmental_conditions": {
+        "mixed_layer_depth": 57.25141152461451,
+        "sea_surface_height_anomaly": 0.15633469673041264,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 30.597,
+          "location": [
+            -0.426,
+            62.592
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 35.543,
+          "location": [
+            -4.678,
+            42.886
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 1.0,
+        "sensor_issues": [],
+        "interpolated_points": 0,
+        "quality_flags": {
+          "good": 50,
+          "questionable": 0,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal"
+      }
+    },
+    {
+      "period": "2017-04",
+      "region": "Indian Ocean",
+      "measurement_count": 255,
+      "date_range": {
+        "start": "2017-04-01",
+        "end": "2017-04-30"
+      },
+      "depth_analysis": {
+        "range": {
+          "min": 1.1,
+          "max": 2001.3,
+          "avg": 821.9247058823529,
+          "std": 680.7065671263563
+        },
+        "distribution": {
+          "surface_0_200m": 68,
+          "intermediate_200_1000m": 85,
+          "deep_1000m_plus": 102
+        },
+        "coverage": "full_column"
+      },
+      "temperature": {
+        "min": 0.468,
+        "max": 28.329,
+        "avg": 9.465886274509806,
+        "std": 8.039609047008932,
+        "surface_avg": 19.156771428571428,
+        "deep_avg": 4.633943661971831,
+        "thermocline_depth": 4.1,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.2998907647906415
+        }
+      },
+      "salinity": {
+        "min": 29.138,
+        "max": 40.623,
+        "avg": 35.178882352941166,
+        "std": 1.7556431785407438,
+        "surface_avg": 34.97302857142857,
+        "deep_avg": 34.78661971830986,
+        "halocline_depth": 4.1,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.07472438672435606
+        },
+        "fresh_water_influence": "high"
+      },
+      "density": {
+        "min": 1018.60498,
+        "max": 1028.60498,
+        "avg": 1026.8486385490198,
+        "std": 1.4176570136016788,
+        "surface_avg": 1024.6368599714285,
+        "deep_avg": 1027.464317633803,
+        "pycnocline_depth": 4.1,
+        "gradients": {
+          "surface_gradient": NaN,
+          "deep_gradient": -0.03406865151534811
+        },
+        "stability_index": 0.7088285068008394
+      },
+      "spatial_coverage": {
+        "lat_range": [
+          -63.435,
+          23.217
+        ],
+        "lon_range": [
+          20.102,
+          139.942
+        ],
+        "center_point": [
+          -29.034105882352943,
+          61.08133333333334
+        ],
+        "spatial_extent_km2": 125650945,
+        "primary_regions": [
+          "Southern Indian Ocean"
+        ],
+        "coastal_vs_open_ocean": {
+          "coastal": 35,
+          "open_ocean": 220
+        }
+      },
+      "water_masses": [
+        {
+          "name": "Indian Deep Water",
+          "temperature_range": [
+            2.062,
+            5.969
+          ],
+          "salinity_range": [
+            34.605,
+            34.791
+          ],
+          "depth_range": [
+            840.0,
+            2000.0
+          ],
+          "prevalence": 0.251
+        },
+        {
+          "name": "Deep Water",
+          "temperature_range": [
+            1.305,
+            3.513
+          ],
+          "salinity_range": [
+            34.617,
+            34.791
+          ],
+          "depth_range": [
+            1513.9,
+            2001.3
+          ],
+          "prevalence": 0.212
+        },
+        {
+          "name": "Antarctic Intermediate Water",
+          "temperature_range": [
+            3.004,
+            6.869
+          ],
+          "salinity_range": [
+            34.252,
+            34.558
+          ],
+          "depth_range": [
+            599.5,
+            1450.1
+          ],
+          "prevalence": 0.125
+        },
+        {
+          "name": "Tropical Surface Water",
+          "temperature_range": [
+            24.441,
+            28.329
+          ],
+          "salinity_range": [
+            34.667,
+            35.705
+          ],
+          "depth_range": [
+            1.1,
+            56.0
+          ],
+          "prevalence": 0.051
+        }
+      ],
+      "oceanographic_summary": "2017-04 data from Indian Ocean shows average temperatures of 9.5\u00b0C and salinity of 35.2. Deep water measurements extend to 2001m depth. Cool waters suggest high latitude or deep water influence.",
+      "environmental_conditions": {
+        "mixed_layer_depth": 144.8533389370998,
+        "sea_surface_height_anomaly": 0.13414252419299563,
+        "season": "spring"
+      },
+      "anomalies": [
+        {
+          "type": "temperature",
+          "description": "Unusually high temperatures detected",
+          "value": 28.329,
+          "location": [
+            -17.841,
+            57.41
+          ],
+          "severity": "moderate"
+        },
+        {
+          "type": "salinity",
+          "description": "High salinity values detected",
+          "value": 40.623,
+          "location": [
+            20.307,
+            38.031
+          ],
+          "severity": "minor"
+        }
+      ],
+      "data_quality": {
+        "completeness": 0.996,
+        "sensor_issues": [],
+        "interpolated_points": 1,
+        "quality_flags": {
+          "good": 254,
+          "questionable": 1,
+          "bad": 0
+        }
+      },
+      "climate_indices": {
+        "seasonal_index": "normal",
+        "IOD_index": -0.05
+      }
+    }
+  ],
+  "annual_overview": {
+    "data_completeness": 0.909,
+    "total_water_masses_identified": 8,
+    "major_anomalies": 18,
+    "climate_summary": "2017 oceanographic patterns within normal ranges",
+    "dominant_patterns": [
+      "Normal seasonal variations",
+      "Typical regional patterns"
+    ]
+  }
+}
