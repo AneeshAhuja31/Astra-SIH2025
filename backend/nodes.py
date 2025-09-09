@@ -1,7 +1,6 @@
 import os
 import json
 import re
-
 from schemas_ import GraphState,check_sql_and_graph,graphData
 from prompts import check_sql_and_graph_prompt,create_sql_query,answer_non_sql_queestion,answer_sql_non_graph_queestion,answer_graph_question,format_graph_coordinates
 from datetime import date 
@@ -25,25 +24,19 @@ from langchain_groq import ChatGroq
 def extract_json_from_text(text):
     """Extract JSON from text that might contain other content"""
     try:
-        # First try to parse the entire text as JSON
         return json.loads(text)
     except json.JSONDecodeError:
-        # If that fails, try to find JSON content within the text
-        # Look for JSON-like patterns
         json_pattern = r'\{[^{}]*"check_sql"\s*:\s*(true|false)[^{}]*"check_graph"\s*:\s*(true|false)[^{}]*\}'
         match = re.search(json_pattern, text, re.IGNORECASE | re.DOTALL)
         if match:
             try:
-                # Clean up the matched JSON
                 json_str = match.group(0)
-                # Replace true/false with proper case
                 json_str = re.sub(r'\btrue\b', 'true', json_str, flags=re.IGNORECASE)
                 json_str = re.sub(r'\bfalse\b', 'false', json_str, flags=re.IGNORECASE)
                 return json.loads(json_str)
             except json.JSONDecodeError:
                 pass
         
-        # Fallback: try to extract boolean values manually
         sql_match = re.search(r'"check_sql"\s*:\s*(true|false)', text, re.IGNORECASE)
         graph_match = re.search(r'"check_graph"\s*:\s*(true|false)', text, re.IGNORECASE)
         
@@ -53,7 +46,6 @@ def extract_json_from_text(text):
                 "check_graph": graph_match.group(1).lower() == 'true'
             }
         
-        # If all else fails, return defaults
         return {"check_sql": False, "check_graph": False}
 
 def check_sql_and_graph_node(state: GraphState):
@@ -65,16 +57,12 @@ def check_sql_and_graph_node(state: GraphState):
         {"role": "user", "content": state["user_prompt"]}
     ])
 
-    # Parse the JSON response from the LLM
     try:
-        # Extract the content from the AIMessage
         response_content = response.content.strip()
         print(f"LLM Response: {response_content}")
         
-        # Parse the JSON response with improved error handling
         parsed_response = extract_json_from_text(response_content)
         
-        # Update state with the parsed values
         state["check_sql"] = bool(parsed_response.get("check_sql", False))
         state["check_graph"] = bool(parsed_response.get("check_graph", False))
         
@@ -83,7 +71,6 @@ def check_sql_and_graph_node(state: GraphState):
     except Exception as e:
         print(f"Error parsing LLM response: {e}")
         print(f"Raw response: {response_content}")
-        # Default fallback values
         state["check_sql"] = False
         state["check_graph"] = False
 
@@ -98,13 +85,10 @@ def create_sql_query_node(state: GraphState):
         {"role": "user", "content": state["user_prompt"]}
     ])
     
-    # Clean up the SQL query - remove any markdown formatting or extra text
     sql_query = response.content.strip()
     
-    # Remove markdown code block formatting if present
     if sql_query.startswith("```sql") or sql_query.startswith("```"):
         lines = sql_query.split('\n')
-        # Remove the first line (```sql or ```) and last line (```) if they exist
         if lines[0].startswith("```"):
             lines = lines[1:]
         if lines and lines[-1].strip() == "```":
@@ -136,7 +120,6 @@ def sql_tool(state: GraphState):
         state['fetched_rows'] = [dict(zip(column_names, row)) for row in rows]
         print(f"Fetched {len(state['fetched_rows'])} rows.")
         
-        # Print sample data for debugging
         if state['fetched_rows']:
             print(f"Sample row: {state['fetched_rows'][0]}")
         
@@ -163,7 +146,6 @@ def format_result_for_graph(state: GraphState):
     ])
     
     try:
-        # Parse the JSON response for graph data
         response_content = response.content.strip()
         print(f"Graph formatting response: {response_content}")
         
@@ -206,7 +188,6 @@ def create_final_answer(state: GraphState):
         
     else:
         print("Generating graph answer...")
-        # Format graph data first if needed
         if not state['graph_data'] or not state['graph_data']['coordinates']:
             format_result_for_graph(state)
             
