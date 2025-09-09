@@ -121,7 +121,7 @@ def sql_tool(state: GraphState):
         print(f"Fetched {len(state['fetched_rows'])} rows.")
         
         if state['fetched_rows']:
-            print(f"Sample row: {state['fetched_rows'][0]}")
+            print(state['fetched_rows'])
         
         cursor.close()
         connection.close()
@@ -137,31 +137,182 @@ def check_graph(state: GraphState):
     return state['check_graph']
         
 
-def format_result_for_graph(state: GraphState):
-    print("--FORMATTING GRAPH DATA--")
-    llm = ChatGroq(model="llama-3.1-8b-instant", api_key=GROQ_API_KEY)
-    response = llm.invoke([
-        format_graph_coordinates.format(),
-        {"role": "system", "content": str(state["fetched_rows"])},
-    ])
+# def format_result_for_graph(state: GraphState):
+#     print("--FORMATTING GRAPH DATA--")
+#     llm = ChatGroq(model="llama-3.1-8b-instant", api_key=GROQ_API_KEY)
+#     response = llm.invoke([
+#         format_graph_coordinates.format(),
+#         {"role": "system", "content": str(state["fetched_rows"])},
+#     ])
     
-    try:
-        response_content = response.content.strip()
-        print(f"Graph formatting response: {response_content}")
+#     try:
+#         response_content = response.content.strip()
+#         print(f"Graph formatting response: {response_content}")
         
-        parsed_response = extract_json_from_text(response_content)
-        state["graph_data"] = {
-            "coordinates": parsed_response.get("coords", []),
-            "x_title": parsed_response.get("x_title", ""),
-            "y_title": parsed_response.get("y_title", "")
-        }
-        print(f"Graph data formatted: {len(state['graph_data']['coordinates'])} points")
-    except Exception as e:
-        print(f"Error parsing graph response: {e}")
+#         parsed_response = extract_json_from_text(response_content)
+#         state["graph_data"] = {
+#             "coordinates": parsed_response.get("coords", []),
+#             "x_title": parsed_response.get("x_title", ""),
+#             "y_title": parsed_response.get("y_title", "")
+#         }
+#         print(f"Graph data formatted: {len(state['graph_data']['coordinates'])} points")
+#     except Exception as e:
+#         print(f"Error parsing graph response: {e}")
+#         state["graph_data"] = {"coordinates": [], "x_title": "", "y_title": ""}
+    
+#     return state
+
+def format_result_for_graph(state: GraphState):
+    """
+    Format SQL results into graph coordinates using pure Python logic.
+    Returns max 20 evenly distributed points with appropriate axis titles.
+    """
+    print("--FORMATTING GRAPH DATA--")
+    
+    fetched_rows = state.get("fetched_rows", [])
+    if not fetched_rows:
         state["graph_data"] = {"coordinates": [], "x_title": "", "y_title": ""}
+        return state
+    
+    # Get available columns from the first row
+    available_columns = list(fetched_rows[0].keys())
+    
+    # Define column mappings for axis titles with units
+    column_mappings = {
+        'depth': ('Depth', 'm'),
+        'temperature': ('Temperature', '°C'),
+        'salinity': ('Salinity', 'PSU'),
+        'density': ('Density', 'kg/m³'),
+        'latitude': ('Latitude', '°'),
+        'longitude': ('Longitude', '°'),
+        'date': ('Date', ''),
+        'observation_count': ('Observation Count', ''),
+        'count': ('Count', ''),
+        'avg': ('Average', ''),
+        'sum': ('Sum', ''),
+        'max': ('Maximum', ''),
+        'min': ('Minimum', '')
+    }
+    
+    def get_axis_title(column_name):
+        """Generate axis title with units for a column"""
+        column_lower = column_name.lower()
+        for key, (title, unit) in column_mappings.items():
+            if key in column_lower:
+                return f"{title} ({unit})" if unit else title
+        # Fallback: capitalize and clean the column name
+        return column_name.replace('_', ' ').title()
+    
+    def is_numeric_column(column_name, rows):
+        """Check if a column contains numeric data"""
+        try:
+            for row in rows[:5]:  # Check first 5 rows
+                value = row.get(column_name)
+                if value is not None:
+                    float(value)
+            return True
+        except (ValueError, TypeError):
+            return False
+    
+    def convert_to_numeric(value):
+        """Convert value to numeric, handling different types"""
+        if value is None:
+            return None
+        try:
+            # Handle Decimal objects and other numeric types
+            if hasattr(value, '__float__'):
+                return float(value)
+            return float(value)
+        except (ValueError, TypeError):
+            return None
+    
+    # Find numeric columns
+    numeric_columns = [col for col in available_columns if is_numeric_column(col, fetched_rows)]
+    
+    if len(numeric_columns) < 2:
+        print(f"Not enough numeric columns found. Available: {numeric_columns}")
+        state["graph_data"] = {"coordinates": [], "x_title": "", "y_title": ""}
+        return state
+    
+    # Select X and Y columns based on common oceanographic patterns
+    x_col, y_col = None, None
+    
+    # Prioritize common oceanographic relationships
+    priority_pairs = [
+        ('depth', 'temperature'),
+        ('depth', 'salinity'),
+        ('depth', 'density'),
+        ('temperature', 'salinity'),
+        ('latitude', 'temperature'),
+        ('longitude', 'temperature'),
+    ]
+    
+    # Try to find priority pairs
+    for x_pref, y_pref in priority_pairs:
+        x_candidates = [col for col in numeric_columns if x_pref in col.lower()]
+        y_candidates = [col for col in numeric_columns if y_pref in col.lower()]
+        if x_candidates and y_candidates:
+            x_col, y_col = x_candidates[0], y_candidates[0]
+            break
+    
+    # Fallback: use first two numeric columns
+    if not x_col or not y_col:
+        x_col, y_col = numeric_columns[0], numeric_columns[1]
+    
+    print(f"Selected columns - X: {x_col}, Y: {y_col}")
+    
+    # Extract and clean data points
+    data_points = []
+    for row in fetched_rows:
+        x_val = convert_to_numeric(row.get(x_col))
+        y_val = convert_to_numeric(row.get(y_col))
+        if x_val is not None and y_val is not None:
+            data_points.append({"x": x_val, "y": y_val})
+    
+    if not data_points:
+        print("No valid numeric data points found")
+        state["graph_data"] = {"coordinates": [], "x_title": "", "y_title": ""}
+        return state
+    
+    # If we have more than 20 points, select 20 evenly distributed ones
+    if len(data_points) > 20:
+        # Sort by x-value for even distribution
+        data_points.sort(key=lambda p: p["x"])
+        
+        # Select evenly spaced indices
+        indices = []
+        step = (len(data_points) - 1) / 19  # 19 steps for 20 points
+        for i in range(20):
+            indices.append(int(round(i * step)))
+        
+        # Remove duplicates and ensure we have unique indices
+        indices = sorted(list(set(indices)))
+        
+        # If we still have too many after deduplication, take first 20
+        if len(indices) > 20:
+            indices = indices[:20]
+        
+        selected_points = [data_points[i] for i in indices]
+        print(f"Reduced from {len(data_points)} to {len(selected_points)} points")
+    else:
+        selected_points = data_points
+        print(f"Using all {len(selected_points)} points")
+    
+    # Generate axis titles
+    x_title = get_axis_title(x_col)
+    y_title = get_axis_title(y_col)
+    
+    # Update state
+    state["graph_data"] = {
+        "coordinates": selected_points,
+        "x_title": x_title,
+        "y_title": y_title
+    }
+    
+    print(f"Graph data formatted: {len(selected_points)} points")
+    print(f"X-axis: {x_title}, Y-axis: {y_title}")
     
     return state
-
 
 def create_final_answer(state: GraphState):
     print("--GENERATE FINAL ANSWER--")

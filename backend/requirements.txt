@@ -1,0 +1,9 @@
+fastapi==0.116.1
+langchain_core==0.3.75
+langchain_google_genai==2.1.10
+langchain_groq==0.3.7
+langgraph==0.6.7
+pandas==2.3.2
+psycopg2_binary==2.9.10
+pydantic==2.11.7
+python-dotenv==1.1.1
