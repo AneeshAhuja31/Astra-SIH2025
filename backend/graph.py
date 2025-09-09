@@ -93,7 +93,6 @@ def test_database_connection():
         
         cursor = connection.cursor()
         
-        # Check if argo_data_2001 table exists
         cursor.execute("""
             SELECT EXISTS (
                 SELECT FROM information_schema.tables 
@@ -105,7 +104,6 @@ def test_database_connection():
         if table_exists:
             print("✅ Table argo_data_2001 exists!")
             
-            # Check table structure and sample data
             cursor.execute("SELECT COUNT(*) FROM argo_data_2001;")
             row_count = cursor.fetchone()[0]
             print(f"✅ Table contains {row_count} rows")
@@ -143,18 +141,14 @@ def test_highest_argos_region_2001():
     print("TEST CASE: Region with Highest Argo Count in 2001")
     print("="*60)
     
-    # First test database connection
     if not test_database_connection():
         print("❌ Database connection test failed. Aborting workflow test.")
         return None, False
     
-    # Create the workflow
     app = create_oceanographic_workflow()
     
-    # Define the test query
     test_query = "Which region had the highest number of Argo observations in 2001?"
     
-    # Initialize state
     initial_state = {
         "user_prompt": test_query,
         "check_sql": False,
@@ -170,10 +164,8 @@ def test_highest_argos_region_2001():
     print("-" * 40)
     
     try:
-        # Run the workflow
         final_state = app.invoke(initial_state)
         
-        # Display results
         print("\n" + "="*40)
         print("WORKFLOW EXECUTION RESULTS")
         print("="*40)
@@ -195,7 +187,6 @@ def test_highest_argos_region_2001():
         print(f"\n✓ Final Answer:")
         print(f"   {final_state['generated_answer']}")
         
-        # Validate expected behavior
         print(f"\n" + "="*40)
         print("VALIDATION")
         print("="*40)
@@ -222,7 +213,6 @@ def test_highest_argos_region_2001():
         print(f"\n❌ ERROR during workflow execution:")
         print(f"   {str(e)}")
         
-        # Print detailed traceback for debugging
         import traceback
         print(f"\nDetailed traceback:")
         traceback.print_exc()
@@ -276,7 +266,6 @@ def test_multiple_queries():
         try:
             final_state = app.invoke(initial_state)
             
-            # Check results
             sql_correct = final_state['check_sql'] == test_case['expected_sql']
             graph_correct = final_state['check_graph'] == test_case['expected_graph']
             
@@ -304,7 +293,6 @@ def test_multiple_queries():
                 'passed': False
             })
     
-    # Summary
     print(f"\n{'='*60}")
     print("MULTI-TEST SUMMARY")
     print("="*60)
@@ -320,7 +308,6 @@ def test_multiple_queries():
     return results
 
 if __name__ == "__main__":
-    # Run the single test case
     print("Running single test case...")
     result, success = test_highest_argos_region_2001()
     
@@ -337,12 +324,10 @@ if __name__ == "__main__":
         else:
             print("Please check the validation results above.")
     
-    # Run multiple test cases
     print(f"\n{'='*80}")
     print("Running multiple test cases...")
     multi_results = test_multiple_queries()
     
-    # Final summary
     print(f"\n{'='*80}")
     print("FINAL TEST SUMMARY")
     print("="*80)
