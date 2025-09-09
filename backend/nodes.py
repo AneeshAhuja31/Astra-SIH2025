@@ -1,8 +1,9 @@
 import os
-from backend.schemas import GraphState,check_sql_and_graph,graphData
-from backend.prompts import check_sql_and_graph_prompt,create_sql_query,answer_non_sql_queestion,answer_sql_non_graph_queestion,answer_graph_question,format_graph_coordinates
+from schemas import GraphState,check_sql_and_graph,graphData
+from prompts import check_sql_and_graph_prompt,create_sql_query,answer_non_sql_queestion,answer_sql_non_graph_queestion,answer_graph_question,format_graph_coordinates
 from datetime import date 
 import psycopg2
+from dotenv import load_dotenv
 load_dotenv()
 
 USER = os.getenv("SUPABASE_USER")
@@ -11,8 +12,6 @@ HOST = os.getenv("SUPABASE_HOST")
 PORT = os.getenv("SUPABASE_PORT")
 DBNAME = os.getenv("SUPABASE_DBNAME")
 
-from dotenv import load_dotenv
-load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_aPI_KEY")
 
@@ -29,10 +28,10 @@ def check_sql_and_graph_node(state:GraphState):
     state["check_sql"] = response.check_sql
     state["check_graph"] = response.check_graph
 
-    return state
+    return state["check_sql"]
 
 
-def create_sql_query(state:GraphState):
+def create_sql_query_node(state:GraphState):
     print("--CREATE SQL QUERY--")
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash",api_key=GEMINI_API_KEY)
     response = llm.invoke([
@@ -66,9 +65,8 @@ def sql_tool(state:GraphState):
 
 def check_graph(state:GraphState):
     print("--CHECKING GRAPH--")
-    if state['check_graph']:
-        return "use_graph"
-    return "dont_use_graph"
+    return state['check_graph']
+        
 
 def format_result_for_graph(state:GraphState):
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=GEMINI_API_KEY).with_structured_output(graphData)
