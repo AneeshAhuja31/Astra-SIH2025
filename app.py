@@ -62,7 +62,6 @@ class OceanographicRAGSystem:
     def extract_filters(self, state: OceanRAGState):
         extraction_llm = llm.with_structured_output(ExtractFilters)
         response = extraction_llm.invoke(input=state["question"])
-        print(response)
         return {**state, "month": response.month, "year": response.year, "values": response.values}
 
 
@@ -79,12 +78,10 @@ class OceanographicRAGSystem:
         )
         chain = prompt | llm.with_structured_output(ClassifyQuery)
         query_type = chain.invoke({"question": state["question"]})
-        print(query_type)
         return {**state, "query_type": query_type.query_type}
 
     # Node 3a: SQL Tool (placeholder for exact values)
     def sql_tool(self, state: OceanRAGState):
-        print("Calling SQL tool node")
         year = state.get("year")
         if not year:
             return {**state, "retrieved_context": "⚠️ No year found to query SQL data."}
@@ -94,7 +91,6 @@ class OceanographicRAGSystem:
 
     # Node 3b: Vector Retrieval (dynamic by year)
     def vector_retrieve(self, state: OceanRAGState):
-        print("Calling vectorstore tool node")
         year = state["year"]
         if not year:
             return {**state, "retrieved_context": "⚠️ No year found for vectorstore."}
@@ -108,8 +104,6 @@ class OceanographicRAGSystem:
 
     # Node 4: Frame Answer
     def frame_answer(self, state: OceanRAGState):
-        print("Calling frame answer node")
-        print(state["retrieved_context"])
         question = state["question"]
         context = state.get("retrieved_context", "")
         prompt = PromptTemplate(
@@ -131,7 +125,6 @@ class OceanographicRAGSystem:
 
     # Node 5: Natural Answer for irrelevant queries
     def natural_answer(self, state: OceanRAGState):
-        print("calling natural answer node")
         chain = llm | StrOutputParser()
         answer = chain.invoke(state["question"])
         return {**state, "answer": answer}
