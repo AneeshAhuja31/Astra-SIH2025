@@ -16,7 +16,7 @@ from typing import Literal
 
 
 # Load keys
-load_dotenv()
+load_dotenv(override=True)
 os.environ['GROQ_API_KEY'] = os.getenv("GROQ_API_KEY")
 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
 
@@ -158,7 +158,7 @@ class OceanographicRAGSystem:
 
         wf = workflow.compile()
         
-        display(Image(wf.get_graph().draw_mermaid_png()))
+        wf.get_graph().draw_mermaid_png(output_file_path="fuckyou.png")
 
         return workflow.compile()
 

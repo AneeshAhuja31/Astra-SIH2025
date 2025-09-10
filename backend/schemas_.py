@@ -1,6 +1,6 @@
 from langgraph.graph import StateGraph
-from typing import TypedDict,Dict,List
-from pydantic import BaseModel
+from typing import TypedDict,Dict,List,Literal
+from pydantic import BaseModel,Field
 class GraphState(TypedDict):
     """
     Represents the state of our graph.
@@ -20,6 +20,18 @@ class GraphState(TypedDict):
     fetched_rows: Dict
     graph_data: Dict
     generated_answer: str
+    metadata:Dict
+    retrieved_context:str
+    query_type:str
+
+class ExtractFilters(BaseModel):
+    month: str = Field(description="Full month out of the user query, no short forms. Leave blank if no value provided")
+    year: str = Field(description="Year in the query.  Leave blank if no value provided")
+    values: List[str] = Field(description="The values asked by the user, can be salinity, temperature or other geochemical data. Leave blank if no value provided")
+    region: str = Field(description="Extract the region the user is talking about. Leave blank if you cannot determine")
+    
+class ClassifyQuery(BaseModel):
+    query_type : Literal["specific", "summary", "irrelevant"]
 
 class check_sql_and_graph(BaseModel):
     check_sql:bool

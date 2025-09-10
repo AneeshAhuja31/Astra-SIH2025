@@ -1,10 +1,13 @@
 import os
 import json
 import re
-from schemas_ import GraphState,check_sql_and_graph,graphData
-from prompts import check_sql_and_graph_prompt,create_sql_query,answer_non_sql_queestion,answer_sql_non_graph_queestion,answer_graph_question,format_graph_coordinates
+from langchain_core.prompts import PromptTemplate
+from schemas_ import GraphState,check_sql_and_graph,graphData,ExtractFilters,ClassifyQuery
+from prompts import check_sql_and_graph_prompt,create_sql_query,answer_non_sql_queestion,answer_sql_non_graph_queestion,answer_graph_question,classify_prompt,natural_answer_prompt,summarize_vectorstore_prompt
 from datetime import date 
 import psycopg2
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -16,10 +19,12 @@ DBNAME = os.getenv("SUPABASE_DBNAME")
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-GEMINI_API_KEY = os.getenv("GEMINI_aPI_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
+embeddings = OpenAIEmbeddings()
+os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY")
 
 def extract_json_from_text(text):
     """Extract JSON from text that might contain other content"""
@@ -47,6 +52,115 @@ def extract_json_from_text(text):
             }
         
         return {"check_sql": False, "check_graph": False}
+    
+def extract_filters(state: GraphState):
+    llm = ChatGroq(model="llama-3.1-8b-instant", api_key=GROQ_API_KEY)
+    extraction_llm = llm.with_structured_output(ExtractFilters)
+    response = extraction_llm.invoke(input=state["user_prompt"])
+    metadata = { "month": response.month, "year": response.year, "region":response.region,"values": response.values}
+    state["metadata"] = metadata
+    return state
+
+def classify_query(state: GraphState):
+    llm = ChatGroq(model="llama-3.1-8b-instant", api_key=GROQ_API_KEY).with_structured_output(ClassifyQuery)
+    
+    # Extract metadata and ensure they are strings
+    metadata = state.get("metadata", {})
+    month = str(metadata.get("month", ""))
+    year = str(metadata.get("year", ""))
+    values = str(metadata.get("values", []))
+    region = str(metadata.get("region", ""))
+    
+    # Create a single system message with all metadata
+    system_content = f"""
+    Context from user query:
+    - Month: {month}
+    - Year: {year}
+    - Values: {values}
+    - Region: {region}
+    """
+    
+    response = llm.invoke([
+        classify_prompt.format(),
+        {"role": "system", "content": system_content},
+        {"role": "user", "content": state["user_prompt"]}
+    ])
+    
+    state["query_type"] = response.query_type
+    return state
+
+def vector_retrieve(state: GraphState):
+    """
+    Retrieve relevant documents from vector store based on user prompt.
+    Uses year from metadata to select appropriate vector store, with validation.
+    """
+    # Extract metadata safely
+    metadata = state.get("metadata", {})
+    
+    # Extract year from metadata and validate
+    year = None
+    if metadata and isinstance(metadata, dict):
+        year = metadata.get("year")
+    
+    # Convert year to integer if it's a string
+    if isinstance(year, str) and year.isdigit():
+        year = int(year)
+    
+    # Validate year range and set default
+    if not year or not isinstance(year, int) or year < 2000 or year > 2017:
+        print(f"Invalid year: {year}. Using default year 2017.")
+        year = 2017
+    
+    print(f"Using vector store for year: {year}")
+    
+    try:
+        # Load the appropriate vector store
+        vectorstore_path = f"./vectorstores/{year}-faiss"
+        vs = FAISS.load_local(
+            folder_path=vectorstore_path, 
+            embeddings=embeddings, 
+            allow_dangerous_deserialization=True
+        )
+        
+        # Perform similarity search
+        user_prompt = state.get("user_prompt", "")
+        if not user_prompt:
+            print("Warning: Empty user prompt")
+            state["retrieved_context"] = ""
+            return state
+            
+        docs = vs.similarity_search(user_prompt, k=3)
+        
+        # Extract and combine document content
+        if docs:
+            context = "\n---\n".join([doc.page_content for doc in docs])
+            print(f"Retrieved {len(docs)} documents from vector store")
+        else:
+            context = ""
+            print("No documents retrieved from vector store")
+        
+        state["retrieved_context"] = context
+        print("*****************************************************")
+        print(context)
+        print("*****************************************************")
+
+    except FileNotFoundError:
+        print(f"Vector store not found for year {year} at path: ./vectorstores/{year}-faiss")
+        state["retrieved_context"] = ""
+    except Exception as e:
+        print(f"Error loading vector store or performing search: {str(e)}")
+        state["retrieved_context"] = ""
+    
+    return state
+
+def natural_answer(state: GraphState):
+    llm = ChatGroq(model="llama-3.1-8b-instant", api_key=GROQ_API_KEY)
+    response = llm.invoke([
+        natural_answer_prompt.format(),
+        {"role": "user", "content": state["user_prompt"]}
+    ])
+    state["generated_answer"] = response.content.strip()
+    return state
 
 def check_sql_and_graph_node(state: GraphState):
     print("--CHECK SQL--")
@@ -130,11 +244,6 @@ def sql_tool(state: GraphState):
         state['fetched_rows'] = []
 
     return state
-
-
-def check_graph(state: GraphState):
-    print("--CHECKING GRAPH--")
-    return state['check_graph']
         
 
 # def format_result_for_graph(state: GraphState):
@@ -165,7 +274,7 @@ def check_graph(state: GraphState):
 def format_result_for_graph(state: GraphState):
     """
     Format SQL results into graph coordinates using pure Python logic.
-    Returns max 20 evenly distributed points with appropriate axis titles.
+    Returns max 10 evenly distributed points with appropriate axis titles.
     """
     print("--FORMATTING GRAPH DATA--")
     
@@ -274,23 +383,23 @@ def format_result_for_graph(state: GraphState):
         state["graph_data"] = {"coordinates": [], "x_title": "", "y_title": ""}
         return state
     
-    # If we have more than 20 points, select 20 evenly distributed ones
-    if len(data_points) > 20:
+    # If we have more than 10 points, select 10 evenly distributed ones
+    if len(data_points) > 10:
         # Sort by x-value for even distribution
         data_points.sort(key=lambda p: p["x"])
         
         # Select evenly spaced indices
         indices = []
-        step = (len(data_points) - 1) / 19  # 19 steps for 20 points
-        for i in range(20):
+        step = (len(data_points) - 1) / 9  # 9 steps for 10 points
+        for i in range(10):
             indices.append(int(round(i * step)))
         
         # Remove duplicates and ensure we have unique indices
         indices = sorted(list(set(indices)))
         
-        # If we still have too many after deduplication, take first 20
-        if len(indices) > 20:
-            indices = indices[:20]
+        # If we still have too many after deduplication, take first 10
+        if len(indices) > 10:
+            indices = indices[:10]
         
         selected_points = [data_points[i] for i in indices]
         print(f"Reduced from {len(data_points)} to {len(selected_points)} points")
@@ -319,7 +428,17 @@ def create_final_answer(state: GraphState):
     
     llm = ChatGroq(model="llama-3.1-8b-instant", api_key=GROQ_API_KEY)
     
-    if not state['check_sql']:
+    if state["query_type"] == "summary":
+        print("Generating answer from vectorstore")
+        system_content = f"Retrieved context: {state['retrieved_context']}"
+        response = llm.invoke([
+            summarize_vectorstore_prompt.format(),
+            {"role": "system", "content": system_content},
+            {"role": "user", "content": state["user_prompt"]}
+        ])
+        state['generated_answer'] = response.content
+        
+    elif not state['check_sql']:
         print("Generating non-SQL answer...")
         response = llm.invoke([
             answer_non_sql_queestion.format(),
@@ -329,11 +448,14 @@ def create_final_answer(state: GraphState):
         
     elif not state['check_graph']:
         print("Generating SQL non-graph answer...")
+        system_content = f"""
+        SQL Query: {state['sql_query']}
+        Fetched Rows: {state['fetched_rows']}
+        """
         response = llm.invoke([
             answer_sql_non_graph_queestion.format(),
-            {"role": "user", "content": state["user_prompt"]},
-            {"role": "system", "content": f"SQL Query: {state['sql_query']}"},
-            {"role": "system", "content": f"Fetched Rows: {state['fetched_rows']}"}
+            {"role": "system", "content": system_content},
+            {"role": "user", "content": state["user_prompt"]}
         ])
         state['generated_answer'] = response.content
         
@@ -341,13 +463,16 @@ def create_final_answer(state: GraphState):
         print("Generating graph answer...")
         if not state['graph_data'] or not state['graph_data']['coordinates']:
             format_result_for_graph(state)
-            
+        
+        system_content = f"""
+        SQL Query: {state['sql_query']}
+        Fetched Rows: {state['fetched_rows'][:10]}
+        Graph Metadata: {state['graph_data']}
+        """
         response = llm.invoke([
             answer_graph_question.format(),
-            {"role": "user", "content": state["user_prompt"]},
-            {"role": "system", "content": f"SQL Query: {state['sql_query']}"},
-            {"role": "system", "content": f"Fetched Rows: {state['fetched_rows']}"},
-            {"role": "system", "content": f"Graph Metadata: {state['graph_data']}"}
+            {"role": "system", "content": system_content},
+            {"role": "user", "content": state["user_prompt"]}
         ])
         state['generated_answer'] = response.content
     
