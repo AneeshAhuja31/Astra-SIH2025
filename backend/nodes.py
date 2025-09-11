@@ -450,7 +450,7 @@ def create_final_answer(state: GraphState):
         print("Generating SQL non-graph answer...")
         system_content = f"""
         SQL Query: {state['sql_query']}
-        Fetched Rows: {state['fetched_rows']}
+        Fetched Rows: {state['fetched_rows'][:10]}
         """
         response = llm.invoke([
             answer_sql_non_graph_queestion.format(),
